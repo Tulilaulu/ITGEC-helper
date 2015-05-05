@@ -1,0 +1,203 @@
+html{
+  font-family: 'Oswald', sans-serif;
+}
+#error{
+  color:red;
+}
+body{
+  text-align:center;
+  padding:20px;
+  height:100%;
+  width:100%;
+}
+.discipline, .dif, .ban, .banbutton{
+  background-color:#9d9d9c;
+  cursor:pointer;
+  padding:10px;
+  color:white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display:inline-block;
+  font-size:18px;
+  margin-right:10px;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+} 
+.discipline:hover, .dif:hover, .ban:hover, .banbutton:hover{
+  opacity:0.7;
+}
+.selected{
+  background-color:#f9b433;
+}
+#options{
+  font-size:18px;
+  text-align:left;
+}
+#options td{
+  padding:0px 15px;
+}
+#start{
+  background-color:#82aca1;
+  background: #82aca1;
+  background: -moz-linear-gradient(top,  #82aca1 0%, #55716a 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#82aca1), color-stop(100%,#55716a));
+  background: -webkit-linear-gradient(top,  #82aca1 0%,#55716a 100%);
+  background: -o-linear-gradient(top,  #82aca1 0%,#55716a 100%);
+  background: -ms-linear-gradient(top,  #82aca1 0%,#55716a 100%);
+  background: linear-gradient(to bottom,  #82aca1 0%,#55716a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82aca1', endColorstr='#55716a',GradientType=0 );
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
+  display:inline-block;
+  padding:10px;
+  cursor:pointer;
+  color:white;
+}
+#reset:hover, #start:hover{
+  opacity:0.7;
+}
+table{
+  margin:20px auto;
+}
+.banbutton{
+  cursor:pointer;
+  background-color:#f9b433;
+}
+.banbutton.inactive{
+  background-color:#9d9d9c;
+  cursor:not-allowed;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  opacity:0.7; 
+}
+#bantable{
+  font-size:18px;
+  text-align:left;
+}
+#bantable td{
+  padding-bottom:8px;
+}
+.matchnumber{
+  font-size:22px;
+  text-align:center;
+}
+.number{
+  float:right;
+  padding-left:15px;
+}
+.songdata{
+  background-color:#71948c;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding:10px;
+  color:white;
+}
+img#logo{
+  margin-bottom:10px;
+}
+.ordernumber{
+  float:left;
+}
+.banmarker {
+  height:30px;
+  width:30px;
+  display:block;
+}
+.banmarker.active{
+  background-image:url('x.png');
+}
+#progress{
+  display:inline-block;
+}
+#progress span{
+  background-color:white;
+  padding:4px;  
+  border-top:1px solid black;
+  border-bottom:1px solid black;
+}
+#progress span.picked{
+  background-color:#82aca1;
+  color:white;
+}
+#progress span:first-of-type{
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left:1px solid black;;
+}
+#progress span:last-of-type{
+-webkit-border-top-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-right:1px solid black;;
+}
+#reset{
+  background-color:#e56766;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display:inline-block;
+  margin-top:10px;
+  color:white;
+  cursor:pointer;
+  padding:6px;
+}
+#matchlist a{
+  text-decoration:none;
+  color:#55716a;
+  padding:3px;
+}
+#matchlist{
+  font-size:18px;
+}
+.bannedsongdatacontainer{
+  opacity:0.7;
+  margin-top:20px;
+  font-size:13px;
+}
+.finalsongdatacontainer, .bannedsongdatacontainer{
+  padding-bottom:15px; 
+}
+.finalsongdatacontainer td{
+  padding:7px;
+  font-size:18px;
+  text-align:left;
+}
+.bannedsongdatacontainer td{
+  text-align:left;
+  padding:2px 5px;
+}
+h4{
+  font-size:17px;
+  margin-bottom:-10px;
+}
+.fsong{
+  background-color:#55716a;
+  color:white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding:4px; 
+  text-align:left;
+}
+#copyt{
+  opacity:0.5;
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:14px;
+}
