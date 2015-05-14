@@ -14,25 +14,31 @@ Made by Aurora Tulilaulu of Codelio Oy
 */
 (function($){
   $(function(){
-    $('.discipline, .dif, .ban').click(function(){
+    $('.discipline, .dif, .ban, .round').click(function(){
       if($(this).hasClass('discipline')){
         $('.discipline').removeClass('selected');
       }
       if($(this).hasClass('ban')){
         $('.ban').removeClass('selected');
       }
+      if($(this).hasClass('round')){
+        $('.round').removeClass('selected');
+      }
       $(this).toggleClass('selected');
     });
     $('#start').click(function(){
       var parameters = "";
-      if ($('.discipline.selected').length < 1 || $('.ban.selected').length < 1 || $('.dif.selected').length < 1){
+      if ($('.discipline.selected').length < 1 || $('.ban.selected').length < 1 || $('.dif.selected').length < 1 || $('.round.selected').length < 1){
         $('#error').text("All parameters must be selected");
         return;    
       }
       parameters = "?disc="+$('.discipline.selected').attr('id');
       parameters = parameters+"&ban="+$('.ban.selected').attr('id');
-      parameters = parameters+"&dif=";
       var error = false;
+      if ($('.round.selected').attr('data') == 5){
+        parameters = parameters + "&type=5";
+      }
+      parameters = parameters+"&dif=";
       $('.dif.selected').each(function(index, x){
         var num =  $(x).attr('data');
         if (($('.discipline.selected').attr('id') == 'low' && ['9', '10', '11', '12'].indexOf(num) == -1)
@@ -81,7 +87,15 @@ Made by Aurora Tulilaulu of Codelio Oy
     <p class="ban" id="left">Left first</p>
     <p class="ban" id="right">Right first</p>
   </td>
-</tr></table>
+</tr>
+<tr>
+  <td>Round type</td>
+  <td>
+    <p class="round" data="3">Best of 3</p>
+    <p class="round" data="5">Best of 5</p>
+  </td>
+</tr>
+</table>
 
 
 <div id="start">Start &gt;</div>

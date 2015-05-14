@@ -5,3 +5,6 @@ To use, clone to your server and make a directory named matches inside the direc
 The lonely python file is for processing song pack data from a copypasted spreadsheet format to json.
 
 ITG EC logo by Mirka Larjomaa.
+
+Known bugs: 
+- If a song has the character " in the name, it will not work. As a workaround, switch " -> '
