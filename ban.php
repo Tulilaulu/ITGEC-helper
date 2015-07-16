@@ -32,8 +32,11 @@ for($i=0; $i<count($data->songs); ++$i){
     $bannedcount++;
   }
 }
-if (count($data->songs) == 12){
+if (count($data->songs) == 12 ){
   $songsToPlay = 6;
+}
+if (count($data->songs) == 9){
+  $songsToPlay = 5;
 }
 
 ?>
