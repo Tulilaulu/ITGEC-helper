@@ -31,6 +31,7 @@ if (!$data->ready){
 <br/>
 <div class="finalsongdatacontainer">
 <h4>Match #<?php echo $id;?></h4>
+<h4 class="names"><?php echo $data->left." <span>VS</span> ".$data->right; ?></h4>
 <h1>Songs to be played</h1>
 <table>
 <?php $i = 1;
@@ -51,7 +52,11 @@ foreach ($data->songs as $song){
   if ($song[2] != null){
       echo "<tr><td><span class='song'>".$song[0]."</span></td>";
       echo "<td><span class='number'>".$song[1]."</span></td>";
-      echo "<td><span class='banned'>(banned by ".$song[2].")</span></td></tr>";
+      if ($song[2] == "left"){
+        echo "<td><span class='banned'>(banned by ".$data->left.")</span></td></tr>";
+      } else{
+        echo "<td><span class='banned'>(banned by ".$data->right.")</span></td></tr>";
+      }
     }
 } ?>
 </table>

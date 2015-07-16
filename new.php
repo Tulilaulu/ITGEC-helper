@@ -51,6 +51,9 @@ Made by Aurora Tulilaulu of Codelio Oy
       })
       if (error){ return; }
       parameters = parameters.substring(0, parameters.length - 1);
+      var left = $('#left').val();
+      var right = $('#right').val();
+      parameters = parameters+'&left='+left+'&right='+right;
       window.location = "roll.php" + parameters;
       return;
     });
@@ -61,7 +64,15 @@ Made by Aurora Tulilaulu of Codelio Oy
 
 <p id="error"></p>
 
-<table id="options"><tr>
+<table id="options">
+<tr>
+  <td>Names</td>
+  <td>
+    <input type="text" placeholder="Left" name="left" id="left"/>
+    <input type="text" placeholder="Right" name="right" id="right"/>
+  </td>
+</tr>
+<tr>
   <td>Discipline</td>
   <td><p id="low" class="discipline">Single Low</p>
       <p id="high" class="discipline">Single High</p>

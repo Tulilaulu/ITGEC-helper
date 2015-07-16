@@ -10,6 +10,18 @@ body{
   height:100%;
   width:100%;
 }
+input{
+   -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-right:10px;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.79);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.79);
+  padding:10px;
+  width:150px;
+  border:0px;
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.79); 
+}
 .round, .discipline, .dif, .ban, .banbutton{
   background-color:#9d9d9c;
   cursor:pointer;
@@ -184,6 +196,15 @@ border-right:1px solid black;;
 h4{
   font-size:17px;
   margin-bottom:-10px;
+}
+h4.names{
+  font-size:25px;
+  margin-bottom:10px;
+}
+h4.names span{
+  color:#55716a;
+  margin-right:6px;
+  margin-left:6px;
 }
 .fsong{
   background-color:#55716a;

@@ -24,6 +24,8 @@ if ($data == null){
   echo "<br/><br/>No data found.";
   die();
 }
+$left = $data->left;
+$right = $data->right;
 $bannedcount = 0;
 for($i=0; $i<count($data->songs); ++$i){
   if ($data->songs[$i][2]!=null){
@@ -63,11 +65,11 @@ if (count($data->songs) == 12){
 
 <table id="bantable">
   <tr>
-    <th>Left</th>
+    <th><?php echo $left; ?></th>
     <th></th>
     <th class="matchnumber">Match #<?php echo $id; ?></th>
     <th></th>
-    <th>Right</th>
+    <th><?php echo $right; ?></th>
   </tr>
 
 <?php foreach ($data->songs as $song):?>
