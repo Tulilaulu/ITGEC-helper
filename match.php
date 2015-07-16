@@ -38,7 +38,11 @@ if (!$data->ready){
 foreach ($data->songs as $song){
   if ($song[2] == null){
       echo "<tr><td><span class='ordernumber'>$i.</span></td>";
-      echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]."</span>";
+      if (isset($song[3])){
+        echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]." (".$song[3].")</span>";
+      }else{
+        echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]."</span>";
+      }
       echo "</td></tr>";
       $i++;
     }
@@ -51,7 +55,11 @@ foreach ($data->songs as $song){
 foreach ($data->songs as $song){
   if ($song[2] != null){
       echo "<tr><td><span class='song'>".$song[0]."</span></td>";
-      echo "<td><span class='number'>".$song[1]."</span></td>";
+      if (isset($song[3])){
+         echo "<td><span class='number'>".$song[1]." (".$song[3].")</span></td>"; 
+      }else{
+        echo "<td><span class='number'>".$song[1]."</span></td>";
+      }
       if ($song[2] == "left"){
         echo "<td><span class='banned'>(banned by ".$data->left.")</span></td></tr>";
       } else{

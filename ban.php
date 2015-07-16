@@ -86,8 +86,14 @@ if (count($data->songs) == 9){
     </td>
     <td><div class="banmarker<?php if ($song[2] == "left"){ echo " active"; }?>"></div></td>
     <td>
-      <div class='songdata<?php if ($song[2]) { echo " banned"; }
-        echo "'><span class='song'>".$song[0]."</span><span class='number'>".$song[1]."</span>";?>
+      <div class='songdata<?php if ($song[2]) { echo " banned"; }?>'>
+      <?php
+      if (isset($song[3])){
+        echo "<span class='song'>".$song[0]."</span><span class='number'>".$song[1]." (".$song[3].")</span>";
+      } else{
+        echo "<span class='song'>".$song[0]."</span><span class='number'>".$song[1]."</span>";
+      }
+      ?>
       </div>
     </td>
     <td><div class="banmarker<?php if ($song[2] == "right"){ echo " active"; }?>"></div></td>
