@@ -24,15 +24,17 @@ for row in high:
   a = row.split("|")
   a[0] = a[0].strip()
   a[1] = a[1].strip()
-  a[2] = a[2].strip()
+#  a[2] = a[2].strip()
   if (a[1] not in ob["high"]):
-    ob["high"][a[1]] = {} 
-    ob["high"][a[1]]["L"] = []
-    ob["high"][a[1]]["H"] = []
-  if (a[2] == "H"):
-    ob["high"][a[1]]["H"].append(a[0])
-  else:
-    ob["high"][a[1]]["L"].append(a[0])
+    ob["high"][a[1]] = [] 
+  ob["high"][a[1]].append(a[0])
+#For 2015 system:
+#    ob["high"][a[1]]["L"] = []
+#    ob["high"][a[1]]["H"] = []
+#  if (a[2] == "H"):
+#    ob["high"][a[1]]["H"].append(a[0])
+#  else:
+#    ob["high"][a[1]]["L"].append(a[0])
 
 
 for row in double:
