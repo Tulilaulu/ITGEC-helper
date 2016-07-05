@@ -1,75 +1,91 @@
-Nebula|13|L
-Fast Track to Browntown|13|L
-Can o' Salt|13|L
-Love Is Eternity|13|L
-Becoming Insane|13|L
-NIGHT OF FIRE|13|L
-Why Did You Go Away|13|L
-Pandemonium|13|L
-Roppongi EVOLVED ver. D|13|L
-Stigma|13|L
-Brain Storm|13|L
-Classical Insanity|13|H
-Get Stronger|13|H
-Summer ~Speedy Mix~|13|H
-Hero|13|H
-Inner Universe|13|H
-The Battle of Lil' Slugger|13|H
-Mashed|13|H
-Run PAC-MAN Run!!!|13|H
-Love to Hate|13|H
-Bleed|14|L
-Ala Rosso|14|L
-Gentleman|14|L
-Propane Nightmares|14|L
-Watercolour|14|L
-Moulin Rouge|14|L
-Contempt Breed Contamination|14|L
-Exciting Hyper Highspeed Star|14|L
-Gravity Blast|14|L
-World Sound|14|L
-Anisakis|14|H
-Big Brother|14|H
-BF2014|14|H
-E.P.M.|14|H
-Tanglang|14|H
-Destination Helios|14|H
-A Destruction Factory|14|H
-Scatman (Ryu* Remix)|14|H
-Brainfog|14|H
-F|14|H
-Axle Grinder|15|L
-Plasticworld|15|L
-NullPoGa|15|L
-Holy Thunderforce|15|L
-Dokudenpa (Poison Air Wave)|15|L
-Creation|15|L
-A Reyvateil's Curse|15|L
-Evacuate the Moshpit|15|L
-Midnight|15|L
-Trisection|15|H
-Xtremepolesta|15|H
-Frictional Nevada|15|H
-The Forgotten One|15|H
-Winnipeg is Over|15|H
-Le Poussin Piou|15|H
-Holders of Power|15|H
-Death of the Dead Sea|16|L
-Still Grey|16|L
-Acid Monster|16|L
-Blue Army|16|L
-Havoc Impact|16|L
-Lovelyteks|16|L
-Aim Burst|16|L
-Rapidity is a Justice 16|16|L
-Isolation Causality Violation|16|L
-Tell Me Why Speedcore Is So Awesome|16|L
-WE LUV LAMA|16|H
-Cry of the Brave|16|H
-Jehovah's YaHVeH|16|H
-Spanish Pirate Robot Frenzy Famicompo Mini 7|16|H
-Oh Delia|16|H
-4 18 Na LSD|16|H
-Baroke Bit|16|H
-Metal Max Metals|16|H
-Footsekz|16|H
+A Destruction Factory|14
+All For You|14
+All I Ask of You|14
+Amazing|14
+Anisakis|14
+Bleed|14
+Brainfog|14
+Complecks Baby|14
+Heroes of our time|14
+Insomnia|14
+Mind Quest|14
+Propane Nightmares|14
+Tanglang|14
+The Phantom|14
+World Sound|14
+A Kidney Stone|15
+A Reyvateil's Curse|15
+All of Me|15
+Body Breakdown|15
+Creation|15
+Drone Strike|15
+Evacuate the Moshpit|15
+Final Destination|15
+Frictional Nevada|15
+Girl in the Fire|15
+Holders of Power|15
+Holy Thunderforce|15
+Iron Will March|15
+Magical Higan Tour 2009|15
+Maginobionics|15
+Never Supply|15
+The Forgotten One|15
+Voodoo people|15
+Where Dragons Rule|15
+Winnipeg is Over|15
+4 18 Na LSD|16
+Acid Monster|16
+All Systems Go|16
+Blue Army|16
+Footsekz|16
+Havoc Impact|16
+Isolation Causality Violation|16
+Level Up!|16
+Lost Souls In Endless Time|16
+Lovelyteks|16
+Pentagram of Coke|16
+Rapidity is a Justice|16
+WE LUV LAMA|16
+Spanish Pirate Robot Frenzy|16
+Stigma (Neosignal Remix)|16
+Tell Me Why Speedcore Is So Awesome|16
+Ulterior Motive|16
+Veins|16
+Voyager|16
+Your Bunny Rave 2013 (Back To '93 Remix)|16
+Zombie Sunset|16
+12 Little Fragments of Silence|17
+Arcane Appartus From Beyond|17
+Bloody Hell Mate|17
+Boomerang Rush|17
+Destination Talos|17
+Die!!Die!!Cover!!!|17
+Future Dominators	17-
+Horizon|17
+Love Hurts (Lonely Mix)|17
+Monado|17
+Odin|17
+One More Lovely After Hours|17
+Pussycat (Loffciamcore Remix)|17
+Resist (Extratone Edit)|17
+Smiting Down The Weak|17
+Snows|17
+The Power of Underground|17
+Toxic Shock|17
+Unorthodox Red|17
+Whazamup|17
+Digital Messias|18
+Egao No Mira E|18
+G.M.C|18
+Heaven|18
+Infernoplextratone|18
+Last Testament|18
+Marunouchi Surviver|18
+Orbital Strike ~prepare for liftoff edition~|18
+Shanti (Angry Luna Mix)|18
+Sigatrev|18
+Super Smash Sonic Kombat|18
+Tendon|18
+The Scales of Struggle|18
+Twincode Maid-gic|18
+Zombie TV (Alex Tune Remix)|18
