@@ -22,7 +22,7 @@ input{
   border:0px;
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.79); 
 }
-.round, .discipline, .dif, .ban, .banbutton{
+.round, .discipline, .dif, .ban, .banbutton, #random, .namebutton{
   background-color:#9d9d9c;
   cursor:pointer;
   padding:10px;
@@ -37,7 +37,7 @@ input{
   -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
 } 
-.round:hover, .discipline:hover, .dif:hover, .ban:hover, .banbutton:hover{
+.round:hover, .discipline:hover, .dif:hover, .ban:hover, .banbutton:hover, #random:hover, .namebutton:hover{
   opacity:0.7;
 }
 .selected{
@@ -221,4 +221,8 @@ h4.names span{
   top:20px;
   right:20px;
   font-size:14px;
+}
+.selection-p{
+  margin-right: 20px;
+  line-height: 49px;
 }

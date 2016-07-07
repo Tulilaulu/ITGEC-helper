@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ITG EC 2015</title>
+<title>ITG EC 2016</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link href='style.css' rel='stylesheet' type='text/css'>
@@ -14,6 +14,13 @@ Made by Aurora Tulilaulu of Codelio Oy
 */
 (function($){
   $(function(){
+    $('#random').click(function(){
+      if (Math.random() < 0.5){
+        $('#left.ban').trigger("click");      
+      }else{
+        $('#right.ban').trigger("click");      
+      }
+    });
     $('.discipline, .dif, .ban, .round').click(function(){
       if($(this).hasClass('discipline')){
         $('.discipline').removeClass('selected');
@@ -41,8 +48,8 @@ Made by Aurora Tulilaulu of Codelio Oy
       parameters = parameters+"&dif=";
       $('.dif.selected').each(function(index, x){
         var num =  $(x).attr('data');
-        if (($('.discipline.selected').attr('id') == 'low' && ['9', '10', '11', '12'].indexOf(num) == -1)
-        ||($('.discipline.selected').attr('id') == 'high' && ['13', '14', '15', '16'].indexOf(num) == -1)
+        if (($('.discipline.selected').attr('id') == 'low' && ['9', '10', '11', '12', '13'].indexOf(num) == -1)
+        ||($('.discipline.selected').attr('id') == 'high' && ['14', '15', '16', '17', '18'].indexOf(num) == -1)
         ||($('.discipline.selected').attr('id') == 'double' && ['9', '10', '11', '12', '13'].indexOf(num) == -1)){
           $('#error').text("Discipline/Difficulty mismatch");
           error = true;
@@ -90,6 +97,8 @@ Made by Aurora Tulilaulu of Codelio Oy
     <p data="14" class="dif">14</p>
     <p data="15" class="dif">15</p>
     <p data="16" class="dif">16</p>
+    <p data="17" class="dif">17</p>
+    <p data="18" class="dif">18</p>
   </td>
 </tr>
 <tr>
@@ -97,6 +106,7 @@ Made by Aurora Tulilaulu of Codelio Oy
   <td>
     <p class="ban" id="left">Left first</p>
     <p class="ban" id="right">Right first</p>
+    <p id="random">Randomize</p>
   </td>
 </tr>
 <tr>

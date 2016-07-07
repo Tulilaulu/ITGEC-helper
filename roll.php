@@ -19,32 +19,29 @@ if(!empty($_GET['type'])){
 $pool = $biisit[$disc];
 $selected = [];
 foreach ($dif as $d){
-  if ($disc == "high"){ //high works on a different system than the others
-    $H = $pool[$d]["H"];
-    shuffle($H);
-    $selected []= [$H[0], $d, null, "H"];
-    $L = $pool[$d]["L"];
-    shuffle($L);
-    $selected []= [$L[0], $d, null, "L"];
-    if ($type != '3'){
-      if (rand()%2 == 0){ //randomly choose from L or H
-        $selected []= [$L[1], $d, null, "L"];
-      }
-      else{
-        $selected []= [$H[1], $d, null, "H"];
-      }
-    }
-  }
-  else{ //others
+#  if ($disc == "high"){ //high works on a different system than the others
+#    $H = $pool[$d]["H"];
+#    shuffle($H);
+#    $selected []= [$H[0], $d, null, "H"];
+#    $L = $pool[$d]["L"];
+#    shuffle($L);
+#    $selected []= [$L[0], $d, null, "L"];
+#    if ($type != '3'){
+#      if (rand()%2 == 0){ //randomly choose from L or H
+#        $selected []= [$L[1], $d, null, "L"];
+#      }
+#      else{
+#        $selected []= [$H[1], $d, null, "H"];
+#      }
+#    }
+#  }
+#  else{ //others
     $current_pool = $pool[$d];
     shuffle($current_pool);
-    $selected []= [$current_pool[0], $d, null];
-    $selected []= [$current_pool[1], $d, null]; //last value = ban status
-    if ($type != '3'){
-       //edit this part if this needs to support anything else than Bo3 and Bo5
-      $selected []= [$current_pool[2], $d, null];
+    for ($i = 0; $i < 4; $i++){
+      $selected []= [$current_pool[$i], $d, null];//last value = ban status
     }
-  }
+#  }
 }
 $i = 1;
 while (file_exists("matches/".$i.".json")){
