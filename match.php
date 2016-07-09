@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ITG Eurocup 2015</title>
+  <title>ITG Eurocup 2016</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link href='style.css' rel='stylesheet' type='text/css'>
@@ -38,11 +38,7 @@ if (!$data->ready){
 foreach ($data->songs as $song){
   if ($song[2] == null){
       echo "<tr><td><span class='ordernumber'>$i.</span></td>";
-      if (isset($song[3])){
-        echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]." (".$song[3].")</span>";
-      }else{
-        echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]."</span>";
-      }
+      echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]."</span>";
       echo "</td></tr>";
       $i++;
     }
