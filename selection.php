@@ -47,7 +47,7 @@ echo "<script>var id=".$id.";</script>";
   </tr>
 <?php foreach ($data['songs'] as $song):?>
   <?php if ($song[2] == null): ?>
-  <tr class="dif<?php echo $song[1];?>">
+  <tr>
     <td>
       <?php if($song[2] == null){
         echo "<div class='banbutton inactive' data='left' data-song=\"$song[0]\" data-dif='$song[1]'>Pick &gt;</div>";
@@ -98,6 +98,8 @@ echo "<script>var id=".$id.";</script>";
       if (firstpicker == null || firstplayer == null){
         alert("Answer the first two questions before picking songs");
       }else{
+        $('.banbutton[data='+$(this).attr('data')+']').removeClass('selected');
+        $(this).addClass('selected');
         isPicked = true;
         $('.firstpicker').css('cursor', 'not-allowed');
         $('.banbutton').addClass('inactive');

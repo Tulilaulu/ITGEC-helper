@@ -234,3 +234,6 @@ h4.names span{
 .tiebr{
   opacity: 0.7;
 }
+.banbutton.selected{
+  background-color:red;
+}
