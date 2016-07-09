@@ -19,29 +19,11 @@ if(!empty($_GET['type'])){
 $pool = $biisit[$disc];
 $selected = [];
 foreach ($dif as $d){
-#  if ($disc == "high"){ //high works on a different system than the others
-#    $H = $pool[$d]["H"];
-#    shuffle($H);
-#    $selected []= [$H[0], $d, null, "H"];
-#    $L = $pool[$d]["L"];
-#    shuffle($L);
-#    $selected []= [$L[0], $d, null, "L"];
-#    if ($type != '3'){
-#      if (rand()%2 == 0){ //randomly choose from L or H
-#        $selected []= [$L[1], $d, null, "L"];
-#      }
-#      else{
-#        $selected []= [$H[1], $d, null, "H"];
-#      }
-#    }
-#  }
-#  else{ //others
     $current_pool = $pool[$d];
     shuffle($current_pool);
     for ($i = 0; $i < 4; $i++){
       $selected []= [$current_pool[$i], $d, null];//last value = ban status
     }
-#  }
 }
 $i = 1;
 while (file_exists("matches/".$i.".json")){
@@ -52,6 +34,6 @@ if ($i > 999){
 }
 $filename = "matches/".$i.".json";
 $file = fopen($filename, 'w') or die('Cannot open file:  '.$filename); 
-fwrite($file, json_encode(["songs" => $selected, "ready" => false, "left" => $left, "right" => $right]));
+fwrite($file, json_encode(["songs" => $selected, "ready" => false, "left" => $left, "right" => $right, "type" => $type]));
 fclose($file);
 header("Location: ban.php?id=".$i."&edit=1&ban=".$ban);

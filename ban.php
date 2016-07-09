@@ -170,6 +170,7 @@ $songsToPlay = (count($data->songs)) / 2;
     $('.banbutton').click(function(){
      if (edit == 1 && $(this).attr('data') == ban){
       t = $(this); 
+      var p = t.parent();
       banned = t.attr('data-song');
       dif = t.attr('data-dif');
       //to check that no player bans too many of the same block
@@ -208,10 +209,10 @@ $songsToPlay = (count($data->songs)) / 2;
         $(".banbutton[data-dif="+bandif+"][data='"+ban+"']").addClass('active');
         $(".banbutton[data-dif="+bandif+"][data='"+ban+"']").removeClass('inactive');
         $("div[data-song=\""+banned+"\"]").remove();
-        if (t.attr('data') == "left"){ //TODO MIKSI EI TOIMI
-          t.parent().next().children().addClass('active');
+        if (t.attr('data') == "left"){ 
+          p.next().children().addClass('active');
         }else{
-          t.parent().prev().children().addClass('active'); 
+          p.prev().children().addClass('active'); 
         }
         increment();
       })

@@ -226,3 +226,11 @@ h4.names span{
   margin-right: 20px;
   line-height: 49px;
 }
+.tiebrakers{
+  text-align: center;
+  margin: 0px;
+  color: #f9b433;
+}
+.tiebr{
+  opacity: 0.7;
+}
