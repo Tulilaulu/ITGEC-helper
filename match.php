@@ -42,7 +42,7 @@ foreach ($data->songs as $song){
       echo "<td><span class='fsong'>".$song[0]."</span></td><td><span class='fnumber'>".$song[1]."</span>";
       echo "</td></tr>";
       if ($i == (int)$data->type){
-        echo "<tr><td colspan='3'><p class='tiebrakers'>--- tiebrakers ---</p></td></tr>";
+        echo "<tr><td colspan='3'><p class='tiebrakers'>--- tiebreakers ---</p></td></tr>";
         $class = "tiebr";
       }
       $i++;
