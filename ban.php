@@ -3,6 +3,7 @@
 <head>
 
 <?php 
+include('config.php');
 /*
 ITG EC Tournament matchup helper software. 
 Made by Aurora Tulilaulu of Codelio Oy

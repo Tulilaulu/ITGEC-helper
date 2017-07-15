@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<?php include('config.php');?>
 <html>
 <head>
 <title>ITG EC 2015</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link href='style.css' rel='stylesheet' type='text/css'>
 </head>
@@ -14,47 +16,77 @@ Made by Aurora Tulilaulu of Codelio Oy
 */
 (function($){
   $(function(){
-    $('.discipline, .dif, .ban, .round').click(function(){
-      if($(this).hasClass('discipline')){
-        $('.discipline').removeClass('selected');
-      }
-      if($(this).hasClass('ban')){
-        $('.ban').removeClass('selected');
-      }
-      if($(this).hasClass('round')){
-        $('.round').removeClass('selected');
-      }
-      $(this).toggleClass('selected');
+    <?php echo "var url = '".$url."';"; ?>
+    $.ajax(url+'tournament-events', {success: processEvents});
+    var matches = null;
+    var selectedmatch = null;
+
+    function processEvents(data) {
+      var events = [];
+      _.each(data, function(e){
+        if (e['status'] == "Ongoing"){
+          events.push(e);
+          $('#event').append("<option value='"+e._id+"'>"+e.name+"</option>");
+        }
+      });
+      console.log("events", events);
+      getMatches();
+      $('#event').change(getMatches);
+      $('#match').change(setMatchdata);
+    }
+
+    function getMatches(){
+      $.ajax(url+'tournament-events/'+$('#event').val()+'/get-open-matches', {success: processMatches});   
+    }
+
+    function processMatches (data){
+      matches = data.matches;
+      $('#match').empty();
+      _.each(data.matches, function(match){
+        var playerdata = [];
+        _.each(match.players, function(playerId){ 
+          $.ajax(url+'players/'+playerId, {success: function(player){
+            playerdata.push(player);
+          }});
+        });
+        match.playerdata = playerdata;
+        $(document).ajaxStop(function(){
+          $('#match').append("<option id='"+match._id+"' value='"+match.roundId+"'>"+match.playerdata[0].nickname+" vs. "+match.playerdata[1].nickname+"</option>");
+        });
+      });
+      $(document).ajaxStop(function(){ setMatchdata();});
+    }
+
+    function setMatchdata(){
+      selectedmatch = _.find(matches, function(m){
+        if (m._id == $('#match option:selected').attr('id')){
+          return m;
+        }
+      });
+      console.log("selected match", selectedmatch);
+      $('#left').html(selectedmatch.playerdata[0].nickname);
+      $('#left').attr('playerid', selectedmatch.playerdata[0]._id);
+      $('#right').html(selectedmatch.playerdata[1].nickname);
+      $('#right').attr('playerid', selectedmatch.playerdata[1]._id);
+    }
+
+    $('.ban').click(function(){
+       $('.ban').removeClass('selected');
+       $(this).toggleClass('selected');
     });
+
     $('#start').click(function(){
       var parameters = "";
-      if ($('.discipline.selected').length < 1 || $('.ban.selected').length < 1 || $('.dif.selected').length < 1 || $('.round.selected').length < 1){
+      if ($('.ban.selected').length < 1 && $('#event') && $('#match')){
         $('#error').text("All parameters must be selected");
         return;    
       }
-      parameters = "?disc="+$('.discipline.selected').attr('id');
-      parameters = parameters+"&ban="+$('.ban.selected').attr('id');
-      var error = false;
-      if ($('.round.selected').attr('data') == 5){
-        parameters = parameters + "&type=5";
-      }
-      parameters = parameters+"&dif=";
-      $('.dif.selected').each(function(index, x){
-        var num =  $(x).attr('data');
-        if (($('.discipline.selected').attr('id') == 'low' && ['9', '10', '11', '12'].indexOf(num) == -1)
-        ||($('.discipline.selected').attr('id') == 'high' && ['13', '14', '15', '16'].indexOf(num) == -1)
-        ||($('.discipline.selected').attr('id') == 'double' && ['9', '10', '11', '12', '13'].indexOf(num) == -1)){
-          $('#error').text("Discipline/Difficulty mismatch");
-          error = true;
-        }
-        parameters += num+",";
-      })
-      if (error){ return; }
-      parameters = parameters.substring(0, parameters.length - 1);
-      var left = $('#left').val();
-      var right = $('#right').val();
-      parameters = parameters+'&left='+left+'&right='+right;
-      window.location = "roll.php" + parameters;
+      parameters = "first="+$('.ban.selected').attr('playerid');
+      parameters += "&second="+$('.ban').not('.selected').attr('playerid');
+      parameters += "&match="+selectedmatch._id;
+      parameters += "&round="+selectedmatch.roundId;
+      parameters += "&type="+selectedmatch.bestOfCount;
+      window.location = "roll.php?" + parameters;
       return;
     });
   });
@@ -66,44 +98,26 @@ Made by Aurora Tulilaulu of Codelio Oy
 
 <table id="options">
 <tr>
-  <td>Names</td>
+  <td>Event</td>
   <td>
-    <input type="text" placeholder="Left" name="left" id="left"/>
-    <input type="text" placeholder="Right" name="right" id="right"/>
+    <div class="selectwrapper">
+     <select id="event"></select>
+    </div>
   </td>
 </tr>
 <tr>
-  <td>Discipline</td>
-  <td><p id="low" class="discipline">Single Low</p>
-      <p id="high" class="discipline">Single High</p>
-      <p id="double" class="discipline">Double</p>
-  </td>
-</tr>
-<tr>
-  <td>Difficulties</td>
+  <td>Match</td>
   <td>
-    <p data="9" class="dif">9</p>
-    <p data="10" class="dif">10</p>
-    <p data="11" class="dif">11</p>
-    <p data="12" class="dif">12</p>
-    <p data="13" class="dif">13</p>
-    <p data="14" class="dif">14</p>
-    <p data="15" class="dif">15</p>
-    <p data="16" class="dif">16</p>
+    <div class="selectwrapper">
+     <select id="match"></select>
+    </div>
   </td>
 </tr>
-<tr>
+<tr id="bantr">
   <td>Who bans first?</td>
   <td>
     <p class="ban" id="left">Left first</p>
     <p class="ban" id="right">Right first</p>
-  </td>
-</tr>
-<tr>
-  <td>Round type</td>
-  <td>
-    <p class="round" data="3">Best of 3</p>
-    <p class="round" data="5">Best of 5</p>
   </td>
 </tr>
 </table>

@@ -1,3 +1,4 @@
+<?php include('config.php')?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,22 @@
 ITG EC Tournament matchup helper software. 
 Made by Aurora Tulilaulu of Codelio Oy
 */
+echo "<pre>";
+$tournaments = file_get_contents($url.'tournaments');
+$obj = json_decode($tournaments);
+$tournament = null;
+foreach($obj as $o) {
+    if ("Ongoing" == $o->status) {
+        $tournament = $o;
+        break;
+    }
+}
+var_dump($tournament);
+
+$events = file_get_contents($url.'tournament-events');
+$obj = json_decode($events);
+echo $obj;
+
 $dir    = 'matches/';
 $files = scandir($dir);
 
