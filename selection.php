@@ -107,9 +107,11 @@ echo "<script>var id=".$id.";</script>";
           pick1 = $(this).attr('data-song');
           if (firstpicker == 'left'){ 
             $('.banbutton[data=right]').removeClass('inactive');
+            $(".banbutton[data=right][data-song='"+$(this).attr('data-song')+"']").hide();
           }
           if (firstpicker == 'right'){
             $('.banbutton[data=left]').removeClass('inactive');
+            $(".banbutton[data=left][data-song='"+$(this).attr('data-song')+"']").hide();
           }
         } else{
           $('.banbutton').addClass('inactive');
