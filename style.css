@@ -43,7 +43,7 @@ input{
   border:0px;
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.79); 
 }
-.ban, .banbutton{
+.ban, .banbutton, .namebutton{
   background-color:#9d9d9c;
   cursor:pointer;
   padding:10px;
@@ -58,7 +58,7 @@ input{
   -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.39);
 } 
-.round:hover, .discipline:hover, .dif:hover, .ban:hover, .banbutton:hover{
+.round:hover, .discipline:hover, .dif:hover, .ban:hover, .banbutton:hover, .namebutton:hover{
   opacity:0.7;
 }
 .selected{
@@ -126,7 +126,7 @@ table{
   padding-left:15px;
 }
 .songdata{
-  background-color:#71948c;
+  background-color:#82aca1;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
