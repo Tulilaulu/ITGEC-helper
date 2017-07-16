@@ -2,7 +2,7 @@
 <?php include('config.php');?>
 <html>
 <head>
-<title>ITG EC 2015</title>
+<title>ITG EC 2017</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -29,7 +29,7 @@ Made by Aurora Tulilaulu of Codelio Oy
           $('#event').append("<option value='"+e._id+"'>"+e.name+"</option>");
         }
       });
-      console.log("events", events);
+//      console.log("events", events);
       getMatches();
       $('#event').change(getMatches);
       $('#match').change(setMatchdata);
@@ -63,7 +63,7 @@ Made by Aurora Tulilaulu of Codelio Oy
           return m;
         }
       });
-      console.log("selected match", selectedmatch);
+//      console.log("selected match", selectedmatch);
       $('#left').html(selectedmatch.playerdata[0].nickname);
       $('#left').attr('playerid', selectedmatch.playerdata[0]._id);
       $('#right').html(selectedmatch.playerdata[1].nickname);

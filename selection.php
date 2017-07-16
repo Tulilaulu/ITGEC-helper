@@ -19,7 +19,7 @@ echo "<script>var id=".$id.";</script>";
 
 ?>
 <html>
-<head><title>ITG EC 2016</title></head>
+<head><title>ITG EC 2017</title></head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link href='style.css' rel='stylesheet' type='text/css'>
