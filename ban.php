@@ -3,12 +3,10 @@
 <head>
 
 <?php 
-include('config.php');
 /*
 ITG EC Tournament matchup helper software. 
 Made by Aurora Tulilaulu of Codelio Oy
 */
-$songsToPlay = 4;
 
 $id = htmlspecialchars($_GET['id']);
 $ban = htmlspecialchars($_GET['ban']);
@@ -28,38 +26,48 @@ if ($data == null){
 $left = $data->left;
 $right = $data->right;
 $bannedcount = 0;
+$bandif = $data->songs[0][1];
+$difs = [];
 for($i=0; $i<count($data->songs); ++$i){
+  if (!in_array($data->songs[$i][1], $difs)){
+    array_push($difs, $data->songs[$i][1]);
+  }
   if ($data->songs[$i][2]!=null){
     $bannedcount++;
+    if ($bannedcount % 2 == 0){
+      $bandif++;
+    }
   }
 }
-if (count($data->songs) == 12 ){
-  $songsToPlay = 6;
-}
-if (count($data->songs) == 9){
-  $songsToPlay = 5;
-}
-
+$songsToPlay = (count($data->songs)) - (2 * count($difs));
 ?>
 
-  <title>ITG Eurocup 2015</title>
+  <title>ITG Eurocup 2016</title>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link href='style.css' rel='stylesheet' type='text/css'>
   <script>
     <?php if (!$data->ready){
-      echo "var edit = ".$edit.";";
+      echo "var edit = '$edit';";
     }
-    if ($bannedcount%2 != 0){
+    if (in_array($bannedcount, [1, 2, 5, 6])){
       if ($ban == "left"){ 
         $ban = "right";}
       else {
         $ban = "left";
       }
+    } else{
+      if ($ban == "left"){ 
+        $ban = "left";}
+      else {
+        $ban = "right";
+      }
     }
+    echo "var bannedcount = $bannedcount;";
     echo "var ban = '$ban';";
     echo "var id = '$id';";
     echo "var songstoplay = '$songsToPlay';";
+    echo "var bandif = ".$bandif.";";
 ?>
   var songdata = <?php echo $origdata; ?>;
   </script>
@@ -77,11 +85,11 @@ if (count($data->songs) == 9){
   </tr>
 
 <?php foreach ($data->songs as $song):?>
-  <tr>
+  <tr class="dif<?php echo $song[1];?>">
     <td>
       <?php if($song[2] == null){
         $class = "";
-        if ($ban == "right" || $edit != 1){ $class = " inactive"; }
+        if ($ban == "right" || $edit != 1 || $bandif != $song[1]){ $class = " inactive"; }
         echo "<div class='banbutton".$class."' data='left' data-song=\"$song[0]\" data-dif='$song[1]'>Ban &gt;</div>";
       } ?>
     </td>
@@ -89,11 +97,7 @@ if (count($data->songs) == 9){
     <td>
       <div class='songdata<?php if ($song[2]) { echo " banned"; }?>'>
       <?php
-      if (isset($song[3])){
-        echo "<span class='song'>".$song[0]."</span><span class='number'>".$song[1]." (".$song[3].")</span>";
-      } else{
         echo "<span class='song'>".$song[0]."</span><span class='number'>".$song[1]."</span>";
-      }
       ?>
       </div>
     </td>
@@ -101,7 +105,7 @@ if (count($data->songs) == 9){
     <td>
       <?php if($song[2] == null){
         $class = "";
-        if ($ban == "left" || $edit != 1){ $class = " inactive"; }
+        if ($ban == "left" || $edit != 1 || $bandif != $song[1]){ $class = " inactive"; }
         echo "<div class='banbutton".$class."' data='right' data-song=\"$song[0]\" data-dif='$song[1]'>&lt; Ban</div>";
       } ?>
     </td>
@@ -111,7 +115,6 @@ if (count($data->songs) == 9){
 
 <div id="progress">
   <?php
-
     for($i=1; $i<(count($data->songs)-($songsToPlay - 1)); ++$i){
       if ($bannedcount>=$i){
         echo "<span class='picked'>$i</span>";
@@ -160,6 +163,7 @@ if (count($data->songs) == 9){
     $('.banbutton').click(function(){
      if (edit == 1 && $(this).attr('data') == ban){
       t = $(this); 
+      var p = t.parent();
       banned = t.attr('data-song');
       dif = t.attr('data-dif');
       //to check that no player bans too many of the same block
@@ -178,23 +182,31 @@ if (count($data->songs) == 9){
       }
       $.ajax("change.php?id="+id+"&banned="+banned+"&banner="+ban)
       .done(function() {
+        bannedcount = bannedcount + 1;
+        if (bannedcount % 2 == 0){
+          bandif = bandif + 1;
+        }
         if (ban == "left"){
           leftbans.push(dif);
         } else {
           rightbans.push(dif);
         }
-        $('.banbutton').removeClass('inactive');
-        if (t.attr('data') == "left"){
-          t.parent().next().children().addClass('active');
-          ban = "right";
-          $("div[data='left']").addClass('inactive');
-        }else{
-          t.parent().prev().children().addClass('active'); 
-          ban = "left";
-          $("div[data='right']").addClass('inactive');
+        if ([1,3,5,7].indexOf(bannedcount) != -1){ //See if banner will change
+          if (ban == "left"){
+            ban = "right";
+          }else{
+            ban = "left";
+          }
         }
+        $(".banbutton").addClass('inactive');
+        $(".banbutton[data-dif="+bandif+"][data='"+ban+"']").addClass('active');
+        $(".banbutton[data-dif="+bandif+"][data='"+ban+"']").removeClass('inactive');
         $("div[data-song=\""+banned+"\"]").remove();
-        //t.remove();
+        if (t.attr('data') == "left"){ 
+          p.next().children().addClass('active');
+        }else{
+          p.prev().children().addClass('active'); 
+        }
         increment();
       })
       .fail(function() {
@@ -218,10 +230,10 @@ if (count($data->songs) == 9){
     function increment (){
         $('#progress span:not(.picked):first').addClass('picked');
       if ($('#progress').children().length == $('.picked').length){
-        var r = confirm("Are these your final choises? (Clicking cancel resets page.)");
+        var r = confirm("Are these your final choices? (Clicking cancel resets page.)");
         if (!r){ resetPage(); }
         else{
-          window.location = "finalize.php?id=" + id;
+          window.location = "selection.php?id=" + id;
         }
       }
     }

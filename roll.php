@@ -27,7 +27,7 @@ foreach ($songs as $song){//organize songs
   }
   array_push($pool[(string)$song->difficultyLevel], $song);
 }
-if (count($songs) == 3){
+if (count($pool) == 3){
   $songs_per_dif = 5;
 }else{
   $songs_per_dif = 4;
