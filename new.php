@@ -86,6 +86,7 @@ Made by Aurora Tulilaulu of Codelio Oy
       parameters += "&match="+selectedmatch._id;
       parameters += "&round="+selectedmatch.roundId;
       parameters += "&type="+selectedmatch.bestOfCount;
+      parameters += "&tournament="+selectedmatch.tournamentId;
       window.location = "roll.php?" + parameters;
       return;
     });
