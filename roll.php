@@ -36,9 +36,13 @@ foreach ($difs as $d){//pick songs
     $current_pool = $pool[$d];
     shuffle($current_pool);
     for ($i = 0; $i < $songs_per_dif; $i++){//process to previous format so that i dont have write the picking phase again
-      $selected []= [$current_pool[$i]->song->title, (string)$current_pool[$i]->difficultyLevel, null, $current_pool[$i]->_id];
+//      var_dump($current_pool[$i]);
+      $selected []= [$current_pool[$i]->song->title, (string)$current_pool[$i]->difficultyLevel, null, $current_pool[$i]->id];
     }
 }
+
+//var_dump($selected);
+//die();
 $i = 1;
 while (file_exists("matches/".$i.".json")){
   $i++;

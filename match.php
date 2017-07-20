@@ -50,17 +50,18 @@ foreach ($data->songs as $song){
 } ?>
 </table>
 </div>
+
+<?php if (isset($data->firstSongPickedBy)){
+echo "<div class='firstpicker'><h3>First song to be played picked by ".$data->firstSongPickedBy."</h3></div>";
+}?>
+
 <div class="bannedsongdatacontainer">
 <h3>Banned songs</h3><table>
 <?php
 foreach ($data->songs as $song){
   if ($song[2] != null){
       echo "<tr><td><span class='song'>".$song[0]."</span></td>";
-      if (isset($song[3])){
-         echo "<td><span class='number'>".$song[1]." (".$song[3].")</span></td>"; 
-      }else{
-        echo "<td><span class='number'>".$song[1]."</span></td>";
-      }
+      echo "<td><span class='number'>".$song[1]."</span></td>";
       if ($song[2] == "left"){
         echo "<td><span class='banned'>(banned by ".$data->left.")</span></td></tr>";
       } else{

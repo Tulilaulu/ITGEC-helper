@@ -120,9 +120,9 @@ echo "<script>var id=".$id.";</script>";
           if (r == true && firstpicker != null && firstplayer != null){
             //find out which is the first song to play
             if ((firstplayer == 'left' && firstpicker == 'left') || (firstplayer == 'right' && firstpicker == 'right')){
-              window.location = "finalize.php?id="+id+"&pick1="+pick1+"&pick2="+pick2;
+              window.location = "finalize.php?id="+id+"&pick1="+pick1+"&pick2="+pick2+"&firstplayer="+firstplayer+"&firstpicker="+firstpicker;
             }else if ((firstplayer == 'right' && firstpicker == 'left') || (firstplayer == 'left' && firstpicker == 'right')){
-              window.location = "finalize.php?id="+id+"&pick1="+pick2+"&pick2="+pick1;
+              window.location = "finalize.php?id="+id+"&pick1="+pick2+"&pick2="+pick1+"&firstplayer="+firstplayer+"&firstpicker="+firstpicker;;
             }
             else{
               alert("error");
