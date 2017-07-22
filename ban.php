@@ -23,6 +23,10 @@ if ($data == null){
   echo "<br/><br/>No data found.";
   die();
 }
+usort($data->songs, function($a, $b)
+{
+    return strcmp($a[1], $b[1]);
+});
 $left = $data->left;
 $right = $data->right;
 $bannedcount = 0;
@@ -39,6 +43,9 @@ for($i=0; $i<count($data->songs); ++$i){
     }
   }
 }
+//echo "<pre>";
+//var_dump($difs);
+//var_dump($data);
 $songsToPlay = (count($data->songs)) - (2 * count($difs));
 ?>
 
